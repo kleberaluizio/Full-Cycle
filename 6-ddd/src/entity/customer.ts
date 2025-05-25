@@ -1,7 +1,7 @@
 class Customer {
     _id: string;
     _name: string;
-    _address: string = "";
+    _address: Address;
     _active: boolean = true;
 
     constructor(id: string, name: string) {  
@@ -33,7 +33,7 @@ class Customer {
     }
 
     activate() {
-        if (this._address.length === 0) {
+        if (this._address === undefined) {
             throw new Error("Address is mandatory to activate a customer")
         }
         this._active = true;
@@ -43,23 +43,8 @@ class Customer {
         this._active = false;
     }
 
-    get id(): string {
-        return this._id;
-    }
 
-    get name(): string {
-        return this._name;
-    }
-
-    get address(): string {
-        return this._address;
-    }
-
-    set name(name: string) {
-        this._name = name;
-    }
-
-    set address(address: string) {
+    set address(address: Address) {
         this._address = address;
     }
 }
