@@ -1,8 +1,10 @@
-class Customer {
-    _id: string;
-    _name: string;
-    _address: Address;
-    _active: boolean = true;
+import Address  from './address';
+
+export default class Customer {
+    private _id: string;
+    private _name: string;
+    private _address: Address;
+    private _active: boolean = false;
 
     constructor(id: string, name: string) {  
         this._id = id;
@@ -11,19 +13,11 @@ class Customer {
     }
 
     validate() {
-        let errors: string[] = [];
         if (this._id.length === 0) {
-            errors.push("id");
+           throw new Error("Id is required!");
         }
         if (this._name.length === 0) {
-            errors.push("name");
-        }
-        if (errors.length > 0) {
-            let errorMessage = "Required parameters: "
-            for (let error in errors) {
-                errorMessage.concat(error).concat(", ");
-            }
-            throw new Error(errorMessage);
+            throw new Error("Name is required!");
         }
     }
 
@@ -43,10 +37,16 @@ class Customer {
         this._active = false;
     }
 
+    isActive(): boolean {
+        return this._active;
+    }
 
-    set address(address: Address) {
+    get name(): string {
+        return this._name;
+    }
+
+    set Address(address: Address) {
         this._address = address;
     }
 }
 
-let customer = new Customer("", "");

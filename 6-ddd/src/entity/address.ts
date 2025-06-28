@@ -1,4 +1,4 @@
-class Address {
+export default class Address {
 
     _street: string = "";
     _number: number = 0;
@@ -11,7 +11,7 @@ class Address {
         this._number = number;
         this._zip = zip;
         this._city = city;
-        
+
         this.validate();
     }
 
