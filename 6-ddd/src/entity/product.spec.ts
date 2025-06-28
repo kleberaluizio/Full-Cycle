@@ -24,4 +24,18 @@ describe("Product unit tests", ()=>{
             const product = new Product("1", "Product 1", -1);
         }).toThrow("Price must be a positive!");
     })
+
+    it("should change name", ()=>{
+        const NEW_NAME = "Great product";
+        let product = new Product("1", "Product 1", 100);
+        product.changeName(NEW_NAME);
+        expect(product.name).toBe(NEW_NAME);
+    })
+
+    it("should change price", ()=>{
+        const NEW_PRICE = 2;
+        let product = new Product("1", "Product 1", 100);
+        product.changePrice(NEW_PRICE);
+        expect(product.price).toBe(NEW_PRICE);
+    })
 })

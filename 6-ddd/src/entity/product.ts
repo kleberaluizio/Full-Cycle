@@ -10,6 +10,14 @@ export default class Product {
         this.validate();
     }
 
+    get name(): string {
+        return this._name;
+    }
+
+    get price(): number {
+        return this._price;
+    }
+
     validate(): boolean {
         if (this._id.length === 0) {
            throw new Error("Id is required!");
@@ -24,5 +32,15 @@ export default class Product {
            throw new Error("Price must be a positive!");
         }
         return true;
+    }
+
+    changeName(name: string): void {
+        this._name = name;
+        this.validate();
+    }
+
+    changePrice(price: number): void {
+        this._price = price;
+        this.validate();
     }
 }
