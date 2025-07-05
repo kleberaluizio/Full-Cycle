@@ -30,4 +30,5 @@ export default class Order {
     total(): number {
         return this._items.reduce((acc, item) => acc + item.orderItemTotal(), 0 );
     }
+
 }

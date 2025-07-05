@@ -45,4 +45,12 @@ describe("Customer unit tests", ()=>{
         expect(() => {customer.activate();}).toThrow("Address is mandatory to activate a customer");
     })
 
+    it("should add reward points", ()=>{
+        const customer = new Customer("1", "Customer 1");
+        expect(customer.rewardPoints).toBe(0); // Garantir a inicialização com ZERO
+        
+        customer.addRewardPoints(10);
+        expect(customer.rewardPoints).toBe(10);
+    })
+
 })
