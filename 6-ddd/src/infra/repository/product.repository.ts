@@ -27,16 +27,12 @@ export default class ProductRepository implements ProductRepositoryInterface {
 
     async find(id: string): Promise<Product> {
         const existingProduct = await ProductModel.findOne({where: {id: id}});
-        
-        return new Product(
-            existingProduct.id,
-            existingProduct.name,
-            existingProduct.price
-        );
+        return new Product(existingProduct.id, existingProduct.name, existingProduct.price);
     }
 
     async findAll(): Promise<Product[]> {
-        throw new Error("Method not implemented.");
+        const existingProducts = await ProductModel.findAll();
+        return existingProducts.map((p) =>  new Product(p.id, p.name, p.price));
     }
 
 }
