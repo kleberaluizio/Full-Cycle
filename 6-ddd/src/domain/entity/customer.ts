@@ -42,16 +42,21 @@ export default class Customer {
         return this._active;
     }
 
-    get name(): string {
-        return this._name;
-    }
-
+    
     set Address(address: Address) {
         this._address = address;
     }
 
     get id(): string {
         return this._id;
+    }
+
+    get name(): string {
+        return this._name;
+    }
+
+    get address(): Address {
+        return this._address;
     }
 
     get rewardPoints(): number {
