@@ -31,7 +31,7 @@ describe("Order unit tests", ()=>{
         ];
 
         const order = new Order("1", "1", items)
-        const total = order.total();
+        const total = order.total;
 
         expect(total).toBe((20 * 2 + 35.5 * 3));
     })

@@ -12,7 +12,7 @@ describe("Order service unit tests", ()=> {
         const order =  OrderService.placeOrder(customer, [item1]);
 
         expect(customer.rewardPoints).toBe(25);
-        expect(order.total()).toBe(50);
+        expect(order.total).toBe(50);
     });
 
     it("should throw when order to be placed with empty items", () => {
